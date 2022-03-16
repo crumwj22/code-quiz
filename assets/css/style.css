@@ -1,0 +1,18 @@
+
+h3 {
+    text-align: justify !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;;
+    flex-wrap: wrap !important;
+    align-items: center;
+    text-align: left;
+
+}
+
+body {
+    text-align: center;
+}
+
+section {
+    font-size: 30px;
+}

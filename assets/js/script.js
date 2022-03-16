@@ -1,3 +1,74 @@
+const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
+const startButton = document.getElementById('start');
+
+
+function buildQuiz(){}
+
+function showResults(){}
+
+// display quiz right away
+buildQuiz();
+
+// on submit, show results
+startButton.addEventListener('click', showResults);
+
+const myQuestions = [
+    {
+      question: "Comomonly used data types DO NOT iclude:",
+      answers: {
+        1.: "strings",
+        2.: "booleans",
+        3.: "arr",
+        4.: "character"
+      },
+      correctAnswer: "3"
+    },
+    {
+      question: "The condition in an if/else statement is enclosed within _______.",
+      answers: {
+        1.: "quotes",
+        2.: "curly brackets",
+        3.: "parentheses",
+        4.: "square brackets"
+      },
+      correctAnswer: "3"
+    },
+    {
+      question: "Arrays in JavaScript can be used to store _______.",
+      answers: {
+        1.: "numbers and strings",
+        2.: "other arrays",
+        3.: "booleans",
+        4.: "all of the above"
+      },
+      correctAnswer: "4"
+    },
+     {
+      question: "String values must be enclosed within _______ when being assigned to variables.",
+      answers: {
+        1.: "commas",
+        2.: "curly brackets",
+        3.: "quotes",
+        4.: "parentheses"
+      },
+      correctAnswer: "3"
+    }
+  ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  1. Design UI
     - Draw a picture

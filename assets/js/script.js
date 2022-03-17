@@ -1,74 +1,3 @@
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const startButton = document.getElementById('start');
-
-
-function buildQuiz(){}
-
-function showResults(){}
-
-// display quiz right away
-buildQuiz();
-
-// on submit, show results
-startButton.addEventListener('click', showResults);
-
-const myQuestions = [
-    {
-      question: "Comomonly used data types DO NOT iclude:",
-      answers: {
-        1.: "strings",
-        2.: "booleans",
-        3.: "arr",
-        4.: "character"
-      },
-      correctAnswer: "3"
-    },
-    {
-      question: "The condition in an if/else statement is enclosed within _______.",
-      answers: {
-        1.: "quotes",
-        2.: "curly brackets",
-        3.: "parentheses",
-        4.: "square brackets"
-      },
-      correctAnswer: "3"
-    },
-    {
-      question: "Arrays in JavaScript can be used to store _______.",
-      answers: {
-        1.: "numbers and strings",
-        2.: "other arrays",
-        3.: "booleans",
-        4.: "all of the above"
-      },
-      correctAnswer: "4"
-    },
-     {
-      question: "String values must be enclosed within _______ when being assigned to variables.",
-      answers: {
-        1.: "commas",
-        2.: "curly brackets",
-        3.: "quotes",
-        4.: "parentheses"
-      },
-      correctAnswer: "3"
-    }
-  ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
  1. Design UI
     - Draw a picture
@@ -79,12 +8,9 @@ const myQuestions = [
 */
 
 /*
- 2. Identify events
-    - Identify HTML elements that generate events, create variables at the top of 
-      the page.
+ 
 
-      var theElement = document.querySelector([CSS Selector for your element]);
-    - Create event handlers
+      
 
       theElement.addeventListener([EVENT TYPE], function(event){
         // do stuff here...
@@ -117,3 +43,102 @@ const myQuestions = [
     - identify tasks that can be broken into their own functions, outside the event handlers
     - Are there tasks that more than one event handler share?
 */
+
+
+
+// 2. Identify events
+// - Identify HTML elements that generate events, create variables at the top of the page.
+//var theElement = document.querySelector([CSS Selector for your element]);
+    //- Create event handlers
+var timeEl = document.querySelector("#time")
+var timerLength = 60;
+var questionIndex = 0;
+var highScoreEl = document.querySelector("#high-scores");
+var timerEl = document.querySelector("#timer");
+var titleEl = document.querySelector("#title");
+var quizEl = document.querySelector("#quiz");
+var startEl = document.querySelector("#start");
+timeEl.textContent = timerLength;
+
+
+var questionsAnswers =  {
+      question: ["Comomonly used data types DO NOT iclude:", "The condition in an if/else statement is enclosed within _______.", "Arrays in JavaScript can be used to store _______.", "String values must be enclosed within _______ when being assigned to variables."],
+      choices: [["strings", "booleans", "arr", "character"], ["quotes", "curly brackets", "parentheses", "square bracket"], ["numbers and strings", "other arrays", "booleans", "all of the above"], ["commas", "curly brackets", "quotes", "parentheses"]],
+      correctAnswers: [2, 2, 3, 3]
+};
+
+function clearScreen() {
+    titleEl.innerHTML = "";
+    quizEl.textcontent = "";
+    titleEl.textcontent = "";
+    if (startEl) {
+        quizEl.innerHTML = ''
+        startEl.remove();
+    }
+}
+function startTimer() {
+        // Sets timer
+    timer = setInterval(function() {
+    timerLength--;
+    timeEl.textContent = timerLength;
+    // Increment question index and re render question div with next question
+    // questionIndex++;
+    // renderQuestion();
+    // console.log(questionsAnswers.question[questionIndex])
+    // questionIndex ++;
+    // console.log(questionsAnswers.question[questionIndex])
+
+    }, 1000);
+}
+
+function renderQuestion() {
+    quizEl.innerHTML = ''
+    var questionTitle = questionsAnswers.question[questionIndex];
+    var titleEl = document.createElement('h4');
+    titleEl.textContent = questionTitle;
+    quizEl.appendChild(titleEl);
+}
+
+startEl.addEventListener('click', function() {
+    clearScreen();
+    startTimer();
+    renderQuestion();
+    console.log(questionsAnswers.choices)
+})
+
+function startGame() {
+    var secondsLeft = timerLength;
+    var currentQuestion = 0;
+}
+
+// if
+
+// if
+
+// for 
+
+//     if 
+    
+//     else
+//     else endgame
+// /
+// startButton.addEventListener('click', showResults);
+// document
+
+
+
+
+// resetButton.addEventListener("click", resetGame);
+
+
+
+
+
+
+
+
+
+
+
+
+

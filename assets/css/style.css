@@ -11,8 +11,13 @@ h3 {
 
 body {
     text-align: center;
+    background-color: lightgrey;
 }
 
 section {
     font-size: 30px;
+}
+
+#title {
+    padding-top: 150px; 
 }

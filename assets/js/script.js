@@ -1,116 +1,113 @@
-/*
- 1. Design UI
-    - Draw a picture
-    - Determine where you will display feedback
-    - Determine what is clickable, what will recieve keytinput, change input
-      timers, scroll events, etc
-    - rough in the elements in HTML, style is less important
-*/
-
-/*
- 
-
-      
-
-      theElement.addeventListener([EVENT TYPE], function(event){
-        // do stuff here...
-      })
-
-    ...where [EVENT TYPE] is "click" or "change" or "keydown" or whatver
-
-    - Identify the things that should happen in the click handlers
-    - there is always a page load event. Usually have a function for anything
-      that needs setting up at the beginning, before people interact with the 
-      page. Start the execution of this setup function at the bottom of page
-*/
-
-/*
- 3. Declare variables
-    - Global state variables emerge while working on event handlers (i.e., it
-      becomes clearer what needs to be tracked across the application)
-    - state variables:
-      "State describes the status of the entire program or an individual
-       object. It could be text, a number, a boolean, or another data type.
-
-       It’s a common tool for coordinating code. For example, once you update state, a bunch of different functions can instantly react to that change."
-       https://www.freecodecamp.org/news/state-in-javascript-explained-by-cooking-a-simple-meal-2baf10a787ee/
-    - Does the state variable need to be global (i.e., used by all the event handlers) or does it only need to be local
-      to the event handler?
-*/
-
-/*
- 3. Refactor
-    - identify tasks that can be broken into their own functions, outside the event handlers
-    - Are there tasks that more than one event handler share?
-*/
 
 
-
-// 2. Identify events
-// - Identify HTML elements that generate events, create variables at the top of the page.
-//var theElement = document.querySelector([CSS Selector for your element]);
-    //- Create event handlers
-var timeEl = document.querySelector("#time")
 var timerLength = 60;
-var questionIndex = 0;
-var highScoreEl = document.querySelector("#high-scores");
+var timeEl = document.querySelector("#time")
 var timerEl = document.querySelector("#timer");
-var titleEl = document.querySelector("#title");
-var quizEl = document.querySelector("#quiz");
+var titleEl = document.querySelector("#title-section"); 
+var questionEl = document.querySelector("#question-section");
 var startEl = document.querySelector("#start");
 timeEl.textContent = timerLength;
 
+var questionIndex = 0;
+var choicesIndex = 0;
+var correctAnswersIndex = 0;
 
-var questionsAnswers =  {
-      question: ["Comomonly used data types DO NOT iclude:", "The condition in an if/else statement is enclosed within _______.", "Arrays in JavaScript can be used to store _______.", "String values must be enclosed within _______ when being assigned to variables."],
-      choices: [["strings", "booleans", "arr", "character"], ["quotes", "curly brackets", "parentheses", "square bracket"], ["numbers and strings", "other arrays", "booleans", "all of the above"], ["commas", "curly brackets", "quotes", "parentheses"]],
-      correctAnswers: [2, 2, 3, 3]
-};
 
-function clearScreen() {
+// var questionsAnswers =  {
+var question = [
+          "Comomonly used data types DO NOT include:", 
+          "The condition in an if/else statement is enclosed within _______.", 
+          "Arrays in JavaScript can be used to store _______.", 
+          "String values must be enclosed within _______ when being assigned to variables.",
+        ];
+    
+var choices = [
+          ["strings", "booleans", "arr", "character",],
+          ["quotes", "curly brackets", "parentheses", "square bracket"], 
+          ["numbers and strings", "other arrays", "booleans", "all of the above"], 
+          ["commas", "curly brackets", "quotes", "parentheses"]]
+      
+var correctAnswers = [2, 2, 3, 3];
+
+// start quiz and clear innerHTML
+function startQuiz() {
     titleEl.innerHTML = "";
-    quizEl.textcontent = "";
+    questionEl.textcontent = "";
     titleEl.textcontent = "";
-    if (startEl) {
-        quizEl.innerHTML = ''
-        startEl.remove();
-    }
 }
+// starts timer for the questions
 function startTimer() {
-        // Sets timer
-    timer = setInterval(function() {
-    timerLength--;
-    timeEl.textContent = timerLength;
-    // Increment question index and re render question div with next question
+       var timer = setInterval(function() {
+        timerLength--; 
+        timeEl.textContent = timerLength;   
+        
+        if (timerLength === 0) {
+         clearInterval(timer);
+        
+        return;
+        }
+    }, 1000);
+
+   }
+ // shows each question with a loop   
+function renderQuestion() {
+    var questionTitle = question[questionIndex];
+    var titleEl = document.createElement('h4');
+    titleEl.textContent = questionTitle;
+    questionEl.textContent = questionTitle;
+    questionIndex++;
+    
+    for (let i = 0; i < question.length; i++) {
+          
+        
+    }
+      return questionIndex;
+}  
+// shows each choice with a loop
+function renderChoices() {
+    var choicesTitles = choices[choicesIndex];
+    choicesIndex++;
+    
+    for (let i = 0; i < choicesTitles.length; i++) {
+    var choiceTitle = choicesTitles[i];  
+        var startEl = document.createElement('button');
+        startEl.textContent = choiceTitle;
+        questionEl.appendChild(startEl); 
+        startEl.append
+    }
+      return choicesIndex;
+}
+
+startEl.addEventListener('click', function() {
+    startQuiz();
+    startTimer();
+    renderQuestion();
+    renderChoices();
+    // console.log(choices)
+})
+
+questionEl.addEventListener('click', function() { 
+    renderQuestion();
+    renderChoices();
+    
+    // if (choices == 3) {
+    //     return correctAnswersIndex;
+    //     // correctAnswers.addEventListener('click', showResults);
+    // }
+
+})  
+//     console.log(questionsAnswers.question[questionIndex])
+
+// var buttonArray = [answerOne, answerTwo, answerThree, answerFour];
+
+// for (var i = 0; i < buttonArray.length; i++) {
+//    buttonArray[i].addEventListener("click", enterFunctionHere);
+      
     // questionIndex++;
     // renderQuestion();
     // console.log(questionsAnswers.question[questionIndex])
     // questionIndex ++;
     // console.log(questionsAnswers.question[questionIndex])
-
-    }, 1000);
-}
-
-function renderQuestion() {
-    quizEl.innerHTML = ''
-    var questionTitle = questionsAnswers.question[questionIndex];
-    var titleEl = document.createElement('h4');
-    titleEl.textContent = questionTitle;
-    quizEl.appendChild(titleEl);
-}
-
-startEl.addEventListener('click', function() {
-    clearScreen();
-    startTimer();
-    renderQuestion();
-    console.log(questionsAnswers.choices)
-})
-
-function startGame() {
-    var secondsLeft = timerLength;
-    var currentQuestion = 0;
-}
-
 // if
 
 // if
@@ -129,16 +126,3 @@ function startGame() {
 
 
 // resetButton.addEventListener("click", resetGame);
-
-
-
-
-
-
-
-
-
-
-
-
-

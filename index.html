@@ -8,20 +8,22 @@
     <title>Code Quiz</title>
 </head>
 <body>
+    <!-- Top fixed header with high scorers and timer -->
     <header>
         <h3 id="high-scores">View Highscores</h3>
         <h3 id="timer">Time: <span id = "time"></span></h3>
     </header>   
-    
-    <section id="title">
-        Coding Quiz Challenge
-    </section>
-
-    <div id="quiz">
-        <h4>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds.</h4>
+    <!-- Title -->
+    <section id="title-section" class="show">
+        <h1>Coding Quiz Challenge</h1>
+            <h4>
+                Try to answer the following code-related questions within the time limit. 
+                Keep in mind that incorrect answers will penalize your score time by ten seconds.
+            </h4>
         <button id="start">Start Quiz</button>
-  
-    </div>
+    </section>
+    <!-- Questions -->
+    <section id="question-section">
     
     <script src="./assets/js/script.js"></script>
 </body>

@@ -2,22 +2,44 @@
 h3 {
     text-align: justify !important;
     flex-direction: row !important;
-    justify-content: space-between !important;;
+    justify-content: space-between !important;
     flex-wrap: wrap !important;
     align-items: center;
     text-align: left;
 
 }
 
+header {
+    padding: 50px;
+    justify-content: space-between;
+    display: flex;
+    color: purple;
+
+}
+
 body {
     text-align: center;
-    background-color: lightgrey;
+    background-color: black;
+    color: rgba(214, 206, 206, 0.863);
 }
 
 section {
-    font-size: 30px;
+    font-size: 25px;
 }
 
-#title {
-    padding-top: 150px; 
+#title-section h1 {
+    padding-top: 115px; 
+    padding-bottom: 30px;
+    color: purple
+    
+}
+
+h4 {
+    width: 700px;
+    margin: auto;
+    font-size: 15; 
+}
+
+button {
+    padding-top: 50;
 }

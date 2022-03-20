@@ -22,4 +22,4 @@ THEN I can save my initials and my score
 
 <a href="https://crumwj22.github.io/code-quiz/">Password Generator</a>
 
-<img src="images/code-quiz-picture.png">
+<img src="assets/images/code-quiz-picture.png">

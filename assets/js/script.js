@@ -7,6 +7,7 @@ var titleEl = document.querySelector("#title-section");
 var questionEl = document.querySelector("#question-section");
 var startEl = document.querySelector("#start");
 
+var count = 0;
 
 
 
@@ -17,7 +18,7 @@ var choicesIndex = 0;
 var correctAnswersIndex = 0;
 
 
-// variable questions and answers 
+// variable questions, choices and answers 
 var question = [
           "Comomonly used data types DO NOT include:", 
           "The condition in an if/else statement is enclosed within _______.", 
@@ -51,9 +52,10 @@ function startTimer() {
         timeEl.textContent = timerLength;   
         
         if (timerLength === 0) {
-         clearInterval(timer);
+            clearInterval(timer);
+            displayMessage();
         
-        return;
+            return;
         }
     }, 1000);
 
@@ -64,13 +66,9 @@ function renderQuestion() {
     var titleEl = document.createElement('h4');
     titleEl.textContent = questionTitle;
     questionEl.textContent = questionTitle;
-    
-    
     questionIndex++;
-    
     for (let i = 0; i < question.length; i++) {
-          
-        
+    
     }
       return questionIndex;
 }  
@@ -85,17 +83,44 @@ function renderChoices() {
         startEl.textContent = choiceTitle;
         questionEl.appendChild(startEl); 
       
-     
-    }
-      return choicesIndex;
 }
+
+    // if (choices.child2 == true) {
+    //     return "correct"
+    //  } else if (!choices.child2 == false) {
+    //     return "incorrect"
+    //  }
+
+    //  if (choices.child1 == true) {
+    //      return "correct"
+        //  } else if (!choices.child1 == false) {
+
+    //  }  
+    
+
+return choicesIndex;
+}
+
+function displayMessage()   {
+    titleEl.textcontent = "Quiz Over"
+}
+
+function setCounterText(){
+    timeEl.textcontent = count;
+}
+
+timeEl.addEventListener("click", function(){
+    count--
+    setCounterText();
+})
+
 // event handlers
 startEl.addEventListener('click', function() {
     startQuiz();
     startTimer();
     renderQuestion();
     renderChoices();
-    endQuiz();
+    
 })
 
 questionEl.addEventListener('click', function() { 
@@ -104,3 +129,10 @@ questionEl.addEventListener('click', function() {
  
 })
 
+function resetGame() {
+    // high score 
+    correctAnswersIndex
+    }
+
+var resetButton = document.querySelector(".reset-button");
+resetButton.addEventListener("click", resetGame);

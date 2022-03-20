@@ -1,4 +1,5 @@
 
+/* high scores and timer styling */
 h3 {
     text-align: justify !important;
     flex-direction: row !important;
@@ -6,40 +7,48 @@ h3 {
     flex-wrap: wrap !important;
     align-items: center;
     text-align: left;
-
 }
-
+/* header styling */
 header {
     padding: 50px;
     justify-content: space-between;
     display: flex;
     color: purple;
-
 }
-
+/* body styling */
 body {
     text-align: center;
     background-color: black;
     color: rgba(214, 206, 206, 0.863);
 }
-
+/* entire section styling */
 section {
     font-size: 25px;
 }
-
+/* Coding Quiz Challenge title styling */
 #title-section h1 {
-    padding-top: 115px; 
+    padding-top: 75px; 
     padding-bottom: 30px;
     color: purple
-    
 }
-
+/* questions styling */
 h4 {
     width: 700px;
     margin: auto;
-    font-size: 15; 
 }
-
+/* button styling */
 button {
-    padding-top: 50;
+    font-size: 15px;
+    color: white;
+    background-color: purple;
+    border-radius: 5px;
+    flex-direction: column;
+}
+/* button hover color */
+button:hover {
+    background-color: gray;
+}
+/* timer countdown color */
+#time {
+    color: rgba(214, 206, 206, 0.863)
 }

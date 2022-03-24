@@ -62,44 +62,62 @@ function startTimer() {
    }
  // shows each question with a loop   
 function renderQuestion() {
+    var questionTitleDiv = document.querySelector('#question-title')
     var questionTitle = question[questionIndex];
-    var titleEl = document.createElement('h4');
-    titleEl.textContent = questionTitle;
-    questionEl.textContent = questionTitle;
-    questionIndex++;
-    for (let i = 0; i < question.length; i++) {
+    var questionH4 = document.createElement('h4');
+    questionTitleDiv.innerHTML = "";
+    questionH4.textContent = questionTitle;
+    questionTitleDiv.appendChild(questionH4)
+    // for (let i = 0; i < question.length; i++) {
     
-    }
-      return questionIndex;
-}  
-// shows each choice with a loop
-function renderChoices() {
+    // }
+    //   return questionIndex;
     var choicesTitles = choices[choicesIndex];
-    choicesIndex++;
+    var choicesList = document.querySelector('#choices-list')
+    choicesList.innerHTML = "";
     
     for (let i = 0; i < choicesTitles.length; i++) {
-    var choiceTitle = choicesTitles[i];  
-        var startEl = document.createElement('button');
-        startEl.textContent = choiceTitle;
-        questionEl.appendChild(startEl); 
+        var choiceTitle = choicesTitles[i];  
+        var choiceButton = document.createElement('button');
+        var listItem = document.createElement('li');
+        choiceButton.textContent = choiceTitle;
+        listItem.appendChild(choiceButton)
+        choicesList.appendChild(listItem); 
       
 }
+}  
+// // shows each choice with a loop
+// function renderChoices() {
+//     var choicesTitles = choices[choicesIndex];
+//     var choicesList = document.querySelector('#choices-list')
+//     choicesList.innerHTML = "";
+//     choicesIndex++;
+    
+//     for (let i = 0; i < choicesTitles.length; i++) {
+//         var choiceTitle = choicesTitles[i];  
+//         var startEl = document.createElement('button');
+//         var listItem = document.createElement('li');
+//         startEl.textContent = choiceTitle;
+//         listItem.appendChild(startEl)
+//         choicesList.appendChild(listItem); 
+      
+// }
 
-    // if (choices.child2 == true) {
-    //     return "correct"
-    //  } else if (!choices.child2 == false) {
-    //     return "incorrect"
-    //  }
+//     // if (choices.child2 == true) {
+//     //     return "correct"
+//     //  } else if (!choices.child2 == false) {
+//     //     return "incorrect"
+//     //  }
 
-    //  if (choices.child1 == true) {
-    //      return "correct"
-        //  } else if (!choices.child1 == false) {
+//     //  if (choices.child1 == true) {
+//     //      return "correct"
+//         //  } else if (!choices.child1 == false) {
 
-    //  }  
+//     //  }  
     
 
-return choicesIndex;
-}
+// return choicesIndex;
+// }
 
 function displayMessage()   {
     titleEl.textcontent = "Quiz Over"
@@ -119,13 +137,28 @@ startEl.addEventListener('click', function() {
     startQuiz();
     startTimer();
     renderQuestion();
-    renderChoices();
+    // renderChoices();
     
 })
 
-questionEl.addEventListener('click', function() { 
+questionEl.addEventListener('click', function(event) { 
+    var target = event.target.textContent;
+    var currentChoices = choices[choicesIndex];
+    var answerIndex = answers[correctAnswersIndex]
+    var correctAnswer = currentChoices[answerIndex]
+
+    if(target !== correctAnswer) {
+        console.log('incorrect')
+    } else {
+        console.log('correct')
+    }
+
+    choicesIndex++;
+    questionIndex++;
+    correctAnswersIndex++;
+    
     renderQuestion();
-    renderChoices();
+    // renderChoices();
  
 })
 
@@ -135,4 +168,4 @@ function resetGame() {
     }
 
 var resetButton = document.querySelector(".reset-button");
-resetButton.addEventListener("click", resetGame);
+// resetButton.addEventListener("click", resetGame);

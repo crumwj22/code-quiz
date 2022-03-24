@@ -112,12 +112,17 @@ questionEl.addEventListener('click', function(event) {
     var currentChoices = choices[choicesIndex];
     var answerIndex = answers[correctAnswersIndex]
     var correctAnswer = currentChoices[answerIndex]
-
+    var timeLost = 10;
+    // log correct and incorrect answers
     if(target !== correctAnswer) {
         console.log('incorrect')
+        alert('incorrect');
+        
     } else {
         console.log('correct')
-    }
+        alert('correct');
+    } 
+   
 
     choicesIndex++;
     questionIndex++;

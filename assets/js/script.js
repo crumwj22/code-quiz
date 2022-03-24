@@ -60,7 +60,7 @@ function startTimer() {
     }, 1000);
 
    }
- // shows each question with a loop   
+ // shows each question and choice with a loop   
 function renderQuestion() {
     var questionTitleDiv = document.querySelector('#question-title')
     var questionTitle = question[questionIndex];
@@ -68,10 +68,7 @@ function renderQuestion() {
     questionTitleDiv.innerHTML = "";
     questionH4.textContent = questionTitle;
     questionTitleDiv.appendChild(questionH4)
-    // for (let i = 0; i < question.length; i++) {
     
-    // }
-    //   return questionIndex;
     var choicesTitles = choices[choicesIndex];
     var choicesList = document.querySelector('#choices-list')
     choicesList.innerHTML = "";
@@ -86,38 +83,7 @@ function renderQuestion() {
       
 }
 }  
-// // shows each choice with a loop
-// function renderChoices() {
-//     var choicesTitles = choices[choicesIndex];
-//     var choicesList = document.querySelector('#choices-list')
-//     choicesList.innerHTML = "";
-//     choicesIndex++;
-    
-//     for (let i = 0; i < choicesTitles.length; i++) {
-//         var choiceTitle = choicesTitles[i];  
-//         var startEl = document.createElement('button');
-//         var listItem = document.createElement('li');
-//         startEl.textContent = choiceTitle;
-//         listItem.appendChild(startEl)
-//         choicesList.appendChild(listItem); 
-      
-// }
 
-//     // if (choices.child2 == true) {
-//     //     return "correct"
-//     //  } else if (!choices.child2 == false) {
-//     //     return "incorrect"
-//     //  }
-
-//     //  if (choices.child1 == true) {
-//     //      return "correct"
-//         //  } else if (!choices.child1 == false) {
-
-//     //  }  
-    
-
-// return choicesIndex;
-// }
 
 function displayMessage()   {
     titleEl.textcontent = "Quiz Over"
